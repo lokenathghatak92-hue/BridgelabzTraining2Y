@@ -1,0 +1,84 @@
+DSA PRACTICE SHEET - PSEUDOCODE & FLOWCHART ANSWERS
+====================================================
+
+SECTION 1: PSEUDOCODE PROBLEMS
+----------------------------------------------------
+
+Problem PC-1: Prime Number Checker
+
+START
+  INPUT N                          // N > 1
+  SET isPrime = TRUE
+  SET i = 2
+  WHILE i * i <= N DO              // only test factors up to sqrt(N)
+    IF N MOD i == 0 THEN
+      SET isPrime = FALSE
+      BREAK
+    END IF
+    SET i = i + 1
+  END WHILE
+  IF isPrime == TRUE THEN
+    OUTPUT "Prime"
+  ELSE
+    OUTPUT "Not Prime"
+  END IF
+END
+
+Example 1: N = 61 -> No divisor found for i = 2..7 -> Prime
+Example 2: N = 8  -> 8 MOD 2 == 0 -> Not Prime
+
+
+Problem PC-2: Number Digit Reversal
+
+START
+  INPUT N
+  SET reversed = 0
+  WHILE N > 0 DO
+    SET digit = N MOD 10                  // extract last digit
+    SET reversed = reversed * 10 + digit  // append digit to reversed number
+    SET N = N DIV 10                      // remove last digit
+  END WHILE
+  OUTPUT reversed
+END
+
+Example 1: N = 1234 -> 4321
+Example 2: N = 806  -> 608
+
+
+SECTION 2: FLOWCHART PROBLEMS (step-by-step structure)
+----------------------------------------------------
+
+Problem FC-1: Prime Number Flowchart
+
+  [Terminal]  Start
+      |
+  [Input]     Read N
+      |
+  [Process]   i = 2
+      |
+  <Decision>  i * i <= N ?  --No--> [Output] "Prime" --> [Terminal] End
+      | Yes
+  <Decision>  N MOD i == 0 ?  --Yes--> [Output] "Not Prime" --> [Terminal] End
+      | No
+  [Process]   i = i + 1
+      |
+      +--> (back to decision: i * i <= N ?)
+
+
+Problem FC-2: Number Digit Reversal Flowchart
+
+  [Terminal]  Start
+      |
+  [Input]     Read N
+      |
+  [Process]   reversed = 0
+      |
+  <Decision>  N > 0 ?  --No--> [Output] Print reversed --> [Terminal] End
+      | Yes
+  [Process]   digit = N MOD 10
+      |
+  [Process]   reversed = reversed * 10 + digit
+      |
+  [Process]   N = N DIV 10
+      |
+      +--> (back to decision: N > 0 ?)
